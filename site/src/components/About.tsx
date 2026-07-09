@@ -10,14 +10,17 @@ export function About() {
           <h2 className="text-[clamp(1.875rem,3vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink">
             {about.heading}
           </h2>
-          {/* TODO(user): drop a real photo at public/portrait.jpg and swap this ShaderPanel for an <img> */}
-          <div className="w-24 shrink-0 rotate-3 overflow-hidden rounded-[0.625rem] border border-hairline aspect-[4/5] transition-transform duration-300 ease-out hover:rotate-0 motion-reduce:transition-none md:w-28">
+          <div className="w-24 shrink-0 rotate-3 overflow-hidden rounded-[0.625rem] border border-hairline aspect-4/5 transition-transform duration-300 ease-out hover:rotate-0 motion-reduce:transition-none md:w-28">
             <ShaderPanel variant="portrait" />
           </div>
         </Reveal>
 
         <div className="mt-8 flex flex-col gap-8 md:flex-row">
-          <div className="w-full shrink-0 overflow-hidden rounded-[0.625rem] border border-hairline aspect-[4/5] sm:w-64 md:aspect-auto md:w-72">
+          <div
+            role="img"
+            aria-label="Dithered portrait of Vedant Patil"
+            className="w-full shrink-0 overflow-hidden rounded-[0.625rem] border border-hairline aspect-4/5 sm:w-64 md:aspect-auto md:w-72"
+          >
             <ShaderPanel variant="photo" />
           </div>
 

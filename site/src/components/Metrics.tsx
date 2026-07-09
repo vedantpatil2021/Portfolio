@@ -19,7 +19,7 @@ export function Metrics() {
               <div key={item.label} className="bg-surface p-6 md:p-8">
                 <div className="flex items-baseline gap-0.5 font-mono text-ink">
                   {item.prefix && (
-                    <span className="text-[0.6em] text-ink-3">{item.prefix}</span>
+                    <span className="text-[0.75em] text-ink-2">{item.prefix}</span>
                   )}
                   <CountUp
                     value={item.value}
@@ -27,7 +27,7 @@ export function Metrics() {
                     className="tabular-nums text-[clamp(2rem,3.5vw,3rem)] font-medium"
                   />
                   {item.suffix && (
-                    <span className="text-[0.6em] text-ink-3">{item.suffix}</span>
+                    <span className="text-[0.75em] text-ink-2">{item.suffix}</span>
                   )}
                 </div>
                 <p className="mt-2 text-sm font-medium text-ink">{item.label}</p>

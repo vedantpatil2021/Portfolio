@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Source-quality backups, not shipped in the bundle
+assets/vedant-img-original.png

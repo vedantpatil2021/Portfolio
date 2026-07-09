@@ -19,9 +19,9 @@ export default function ShaderScene({ variant }: { variant: ShaderVariant }) {
         className="h-full w-full"
         image={vedantImg}
         fit="cover"
-        colorBack={colors[0]}
-        colorFront={colors[3]}
-        colorHighlight={colors[2]}
+        colorBack={theme === "dark" ? colors[0] : "#FFEDD5"}
+        colorFront={theme === "dark" ? colors[3] : "#292524"}
+        colorHighlight={theme === "dark" ? colors[2] : "#C2410C"}
         colorSteps={3}
         type="4x4"
         size={3}

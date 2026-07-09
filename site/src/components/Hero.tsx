@@ -75,7 +75,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-28 pb-28 md:pt-36 md:pb-36"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-10">
         <motion.div

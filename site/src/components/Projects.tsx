@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon, CodeIcon, PlugsIcon, SparkleIcon, type Icon } from "@phosphor-icons/react";
 import { projects } from "../lib/content";
+import { useTheme } from "../lib/theme";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal } from "./ui/Reveal";
 import { ShaderPanel } from "./ui/ShaderPanel";
@@ -54,15 +55,28 @@ function Chips({ stack }: { stack: string[] }) {
 }
 
 function ProjectCard({ project, index }: { project: ProjectItem; index: number }) {
+  const { theme } = useTheme();
   const delay = Math.min(index * 0.06, 0.3);
   const backgroundClass = project.visual === "tint" ? "bg-accent-tint" : "bg-surface";
+  const cardClass = project.href
+    ? cardBase
+    : cardBase.replace("hover:-translate-y-1", "").replace("hover:border-ink/15", "");
 
   if (project.visual === "shader-b") {
     return (
       <Reveal
         delay={delay}
-        className={`${cardBase} bg-surface ${project.span} min-h-[280px] justify-end`}
+        className={`${cardClass} bg-surface ${project.span} min-h-[280px] justify-end`}
       >
+        {project.href && (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${project.title} — open project`}
+            className="absolute inset-0 z-10"
+          />
+        )}
         <div aria-hidden className="absolute inset-0">
           <div className="h-full w-full transition-transform duration-300 ease-out group-hover:scale-[1.03]">
             <ShaderPanel variant="project-b" />
@@ -86,7 +100,16 @@ function ProjectCard({ project, index }: { project: ProjectItem; index: number }
   }
 
   return (
-    <Reveal delay={delay} className={`${cardBase} ${backgroundClass} ${project.span}`}>
+    <Reveal delay={delay} className={`${cardClass} ${backgroundClass} ${project.span}`}>
+      {project.href && (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${project.title} — open project`}
+          className="absolute inset-0 z-10"
+        />
+      )}
       {project.visual === "pattern" && (
         <div
           aria-hidden
@@ -102,10 +125,21 @@ function ProjectCard({ project, index }: { project: ProjectItem; index: number }
       )}
 
       {project.visual === "shader-a" && (
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[0.625rem]">
+        <div className="relative aspect-16/9 overflow-hidden rounded-[0.625rem]">
           <div className="h-full w-full transition-transform duration-300 ease-out group-hover:scale-[1.03]">
             <ShaderPanel variant="project-a" />
           </div>
+        </div>
+      )}
+
+      {project.visual === "image" && project.art && (
+        <div className="relative aspect-16/9 overflow-hidden rounded-[0.625rem] border border-hairline">
+          <img
+            src={`/art/${project.art}-${theme}.png`}
+            alt=""
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+          />
         </div>
       )}
 

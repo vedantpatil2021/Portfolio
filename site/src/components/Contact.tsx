@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GithubLogoIcon, LinkedinLogoIcon, CopyIcon, CheckIcon } from "@phosphor-icons/react";
+import { GithubLogoIcon, LinkedinLogoIcon, CopyIcon, CheckIcon, FileTextIcon } from "@phosphor-icons/react";
 import { contact, global } from "../lib/content";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal } from "./ui/Reveal";
@@ -58,6 +58,10 @@ export function Contact() {
                   {contact.copyLabel}
                 </>
               )}
+            </Button>
+            <Button href={global.resume} target="_blank" rel="noreferrer" variant="secondary">
+              <FileTextIcon size={18} />
+              Resume
             </Button>
             <a href={global.github} target="_blank" rel="noreferrer" aria-label="GitHub" className={iconButtonClass}>
               <GithubLogoIcon size={18} />

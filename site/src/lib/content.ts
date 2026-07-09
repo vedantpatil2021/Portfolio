@@ -5,6 +5,7 @@ export const global = {
   location: "Columbus, Ohio",
   github: "https://github.com/vedantpatil2021",
   linkedin: "https://linkedin.com/in/vedant-patil-6082",
+  resume: "/Vedant_Patil_Resume.pdf",
 };
 
 export const navLinks = [
@@ -28,7 +29,7 @@ export const hero = {
     post: "do real work.",
   },
   support:
-    "MCP servers, multi-agent pipelines, and GPU inference platforms on Kubernetes. M.S. Computer Science, The Ohio State University.",
+    "MCP servers, multi-agent pipelines, and GPU inference platforms on Kubernetes. M.S. Computer Science and Engineering, The Ohio State University.",
   primaryButton: { label: "View projects", href: "#projects" },
   secondaryLink: { label: "Get in touch", href: "#contact" },
 };
@@ -135,13 +136,21 @@ export const experience = {
   ],
 };
 
-export type ProjectVisual = "shader-a" | "shader-b" | "tint" | "pattern" | "plain" | "icon-pattern";
+export type ProjectVisual =
+  | "shader-a"
+  | "shader-b"
+  | "tint"
+  | "pattern"
+  | "plain"
+  | "icon-pattern"
+  | "image";
 
 export const projects = {
   eyebrow: "Selected work",
   heading: "Projects",
   support: "Six systems, all real, all shipped. Built to run, not to demo.",
   moreLink: { label: "More on GitHub", href: global.github },
+  // TODO(user): add repo/case-study URLs
   items: [
     {
       title: "WorldForge",
@@ -151,7 +160,9 @@ export const projects = {
       metric: "99.9% uptime · $0.11 per video",
       stack: ["K3s", "NVIDIA H100", "Redis", "FastAPI"],
       visual: "shader-a" as ProjectVisual,
+      art: null as string | null,
       span: "lg:col-span-7 lg:row-span-2",
+      href: null as string | null,
     },
     {
       title: "DroneMCP",
@@ -161,7 +172,9 @@ export const projects = {
       metric: "45 LLM-callable tools",
       stack: ["Python", "FastMCP", "ECS Fargate", "WebSocket"],
       visual: "tint" as ProjectVisual,
+      art: null as string | null,
       span: "lg:col-span-5",
+      href: null as string | null,
     },
     {
       title: "Autonomous Multi-Agent Dev Team",
@@ -171,7 +184,9 @@ export const projects = {
       metric: null as string | null,
       stack: ["Claude Code", "Codex", "MCP"],
       visual: "icon-pattern" as ProjectVisual,
+      art: null as string | null,
       span: "lg:col-span-5",
+      href: null as string | null,
     },
     {
       title: "Kira (RetailOps)",
@@ -180,8 +195,10 @@ export const projects = {
         "Correlates CloudWatch logs, Prometheus metrics, and EKS cluster health in real time to surface root causes, on a full GitOps platform with ArgoCD and Terraform.",
       metric: null as string | null,
       stack: ["AWS Bedrock", "EKS", "Prometheus", "ArgoCD"],
-      visual: "pattern" as ProjectVisual,
+      visual: "image" as ProjectVisual,
+      art: "kira" as string | null,
       span: "lg:col-span-7",
+      href: null as string | null,
     },
     {
       title: "Agentic RAG Pipeline",
@@ -190,8 +207,10 @@ export const projects = {
         "The LLM chooses when and where to retrieve across multiple sources, with automated correctness checks and a failure taxonomy that closes the improvement loop.",
       metric: null as string | null,
       stack: ["Python", "LLM evals"],
-      visual: "plain" as ProjectVisual,
+      visual: "image" as ProjectVisual,
+      art: "AgenticRAG" as string | null,
       span: "lg:col-span-5",
+      href: null as string | null,
     },
     {
       title: "Human-in-the-Loop Agent App",
@@ -200,8 +219,10 @@ export const projects = {
         "Full-stack web app where agents handle processing, tool calls, and state between steps, with structured handoff protocols and full observability of every model decision.",
       metric: null as string | null,
       stack: ["React", "FastAPI", "LLM agents"],
-      visual: "shader-b" as ProjectVisual,
+      visual: "image" as ProjectVisual,
+      art: "HumanintheLoop" as string | null,
       span: "lg:col-span-12",
+      href: null as string | null,
     },
   ],
 };
