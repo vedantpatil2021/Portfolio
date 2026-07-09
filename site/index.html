@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var dark = stored
+          ? stored === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (dark) document.documentElement.classList.add("dark");
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Vedant Patil, Software Engineer</title>
+    <meta
+      name="description"
+      content="Software engineer building agentic AI systems and production infrastructure: MCP servers, multi-agent pipelines, GPU inference on Kubernetes."
+    />
+    <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Vedant Patil, Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer building agentic AI systems and production infrastructure: MCP servers, multi-agent pipelines, GPU inference on Kubernetes."
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
