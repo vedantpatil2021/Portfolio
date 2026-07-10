@@ -19,12 +19,12 @@ export default function ShaderScene({ variant }: { variant: ShaderVariant }) {
         className="h-full w-full"
         image={vedantImg}
         fit="cover"
-        colorBack={theme === "dark" ? colors[0] : "#FFEDD5"}
-        colorFront={theme === "dark" ? colors[3] : "#292524"}
-        colorHighlight={theme === "dark" ? colors[2] : "#C2410C"}
-        colorSteps={3}
-        type="4x4"
-        size={3}
+        colorBack={theme === "dark" ? DARK_COLORS[0] : LIGHT_COLORS[1]}
+        colorFront={theme === "dark" ? DARK_COLORS[3] : "#292524"}
+        colorHighlight={theme === "dark" ? DARK_COLORS[2] : LIGHT_COLORS[3]}
+        colorSteps={5}
+        type="8x8"
+        size={1.5}
         speed={0}
       />
     );

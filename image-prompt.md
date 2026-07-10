@@ -57,18 +57,6 @@ Replaces the `tint` visual. 1200×675 (16:9), light + dark.
 
 ---
 
-## 5. (Optional) Hero static poster — reduced-motion / no-WebGL fallback
-
-The hero MeshGradient is animated WebGL; a static poster can serve `prefers-reduced-motion` users and be an instant-paint placeholder. 2000×720 (site hero ratio ~1120:360), light + dark.
-
-**Light prompt:**
-> An ultra-wide abstract gradient banner: soft cloud-like mesh gradient flowing horizontally, warm off-white #FAFAF9 and pale peach #FFEDD5 dominating, with one diffuse bloom of soft orange #FDBA74 right of center deepening into a small core of burnt orange #C2410C, very fine film grain across the whole image. [shared palette] [shared style]
-
-**Dark prompt:**
-> An ultra-wide abstract gradient banner on near-black #0C0A09: slow smoky drifts of warm charcoal #292524 and deep rust #7C2D12, with one diffuse glowing bloom of bright orange #FB923C right of center, very fine film grain. [shared palette] [shared style]
-
----
-
 ## Wiring notes (for whoever implements)
 
 - Save pairs as `public/art/<name>-light.png` and `public/art/<name>-dark.png`; swap via the existing `useTheme()` hook (same pattern as `ShaderScene`'s color switch).

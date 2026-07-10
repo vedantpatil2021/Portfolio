@@ -1,4 +1,6 @@
 import { ThemeProvider } from "./lib/theme";
+import { BackgroundMusicProvider } from "./lib/backgroundMusic";
+import { BackgroundMusicToggle } from "./components/ui/BackgroundMusicToggle";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Quote } from "./components/Quote";
@@ -15,26 +17,29 @@ import { Footer } from "./components/Footer";
 function App() {
   return (
     <ThemeProvider>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-on"
-      >
-        Skip to content
-      </a>
-      <Nav />
-      <main id="main">
-        <Hero />
-        <Quote />
-        <Metrics />
-        <About />
-        <Experience />
-        <Projects />
-        <Thought />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+      <BackgroundMusicProvider>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-on"
+        >
+          Skip to content
+        </a>
+        <Nav />
+        <main id="main">
+          <Hero />
+          <Quote />
+          <Metrics />
+          <About />
+          <Experience />
+          <Projects />
+          <Thought />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+        <BackgroundMusicToggle />
+      </BackgroundMusicProvider>
     </ThemeProvider>
   );
 }

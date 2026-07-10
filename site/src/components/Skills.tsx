@@ -1,6 +1,7 @@
 import { BrainIcon, CloudArrowUpIcon, CpuIcon, CodeIcon, type Icon } from "@phosphor-icons/react";
 import { skills } from "../lib/content";
 import { Reveal } from "./ui/Reveal";
+// import SkillsBackgroundStrip from "./ui/SkillsBackgroundStrip";
 
 const icons: Icon[] = [BrainIcon, CloudArrowUpIcon, CpuIcon, CodeIcon];
 
@@ -40,6 +41,10 @@ export function Skills() {
             );
           })}
         </div>
+
+        {/* <div className="mt-16 md:mt-20">
+          <SkillsBackgroundStrip />
+        </div> */}
       </div>
     </section>
   );

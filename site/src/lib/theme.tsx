@@ -1,10 +1,11 @@
 import {
   createContext,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useState,
   type ReactNode,
 } from "react";
+import { flushSync } from "react-dom";
 
 type Theme = "light" | "dark";
 
@@ -22,13 +23,25 @@ function getInitialTheme(): Theme {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   function toggle() {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    const canAnimate =
+      typeof document.startViewTransition === "function" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!canAnimate) {
+      setTheme(next);
+      return;
+    }
+
+    document.startViewTransition(() => {
+      flushSync(() => setTheme(next));
+    });
   }
 
   return (

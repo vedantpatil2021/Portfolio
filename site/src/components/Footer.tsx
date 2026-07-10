@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-6 px-6 text-sm md:px-10">
         <div
           aria-hidden
-          className="select-none overflow-hidden text-[clamp(3.5rem,13vw,10rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-ink/[0.05] dark:text-ink/[0.07]"
+          className="select-none overflow-hidden text-center text-[clamp(3.5rem,13vw,10rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-ink/[0.05] dark:text-ink/[0.07]"
         >
           {footer.wordmark}
         </div>

@@ -1,14 +1,25 @@
+import { useRef } from "react";
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "../../lib/theme";
 
 export function ThemeToggle() {
   const { theme, toggle } = useTheme();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  function handleClick() {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/theme-change-sound.mp3");
+    }
+    audioRef.current.currentTime = 0;
+    void audioRef.current.play().catch(() => {});
+    toggle();
+  }
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={handleClick}
       aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
       className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-hairline text-ink transition-colors duration-200 hover:bg-surface-tint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
     >
